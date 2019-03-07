@@ -9,18 +9,26 @@ main {
     margin: 0 auto;
 }
 
+span {
+    font-family: 'Axiforma-light', sans-serif;
+}
+
 h2:after,
 main div > section h3:after {
     height: 0.1em;
     margin-top: 0.3em;
     background-color: #46a4bb;
-    width: 2em;
+    width: 30px;
     content: "";
     display: block;
 }
 
 a {
     text-decoration: none;
+}
+
+img[src=""] {
+    display: none;
 }
 
 /* Eerste heading */
@@ -30,58 +38,82 @@ main > div:first-of-type img {
 
 main > div {
     display: inline-flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
 }
 
 main div > section h3 {
-    padding-top: 0.5em;
-    padding-bottom: 1em;
+    margin-top: 0;
+    margin-bottom: 8;
 }
 
-main div > section h3, main div > section p {
+main div > section ul {
+    padding-left: 1em;
+}
+
+main div > section div > span {
+    color: white;
+}
+
+main div > section ul {
+    margin-top: 8;
+}
+
+main div > section h3, main div > section ul li {
     color: white;
     text-align: left;
-    font-family: sans-serif;
 }
 
 main div > section {
-    margin: 0 1em 1em 0;
-    height: 15em;
-    max-width: 15em;
-    max-height: 15em;
+    margin: 0 8 30px 0;
+    height: 205px;
+    width: 250px;
+    max-width: 250px;
+    max-height: 205px;
     overflow: hidden;
     border-radius: 8px;
     transition-duration: 0.7s;
 }
 
-main div > section:hover div {
-    margin-top: -15em;
-    transition-duration: 0.7s;
-}
+/* Overlay */
 
 main div > section a div {
-    width: 15em;
-    height: 15em;
-    background-color: rgba(0, 0, 0, 0.6);
+    width: 250px;
+    height: 205px;
+    background-color: rgba(0, 0, 0, 0.4);
     box-sizing: border-box;
     padding: 1em;
     position: relative;
     z-index: 1;
     transition-duration: 0.7s;
-    margin-top: 0;
+    margin-top: -250px;
+    border-radius: 8px;
+    opacity: 0;
 }
 
-section img {
+/* Overlay | Items */
+main section > a img {
     width: 100%;
-    max-width: 15em;
     display: inline;
     z-index: 0;
     position: relative;
     margin-bottom: -0.25em;
     margin-top: 0;
+    transition-duration: 0.7s;
 }
 
 main div > section a div h2 {
     margin-top: 0;
+}
+
+main div > section:hover img {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    transition-duration: 0.7s;
+}
+
+main div > section:hover div {
+    opacity: 1;
+    transition-duration: 0.7s;
 }
