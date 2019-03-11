@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
@@ -6,35 +7,60 @@ body, html {
 
 * {
     box-sizing: border-box;
+    transition-duration: 0.7s;
 }
 
+/* Video overlay */
 main > div:first-of-type {
+    position: relative;
+    display: inline-block;
+}
+
+body main > div:first-of-type img {
+    position: absolute;
+    top: 0;
     width: 100%;
-    background-color: #eeeeee;
-    font-family: 'Axiforma', sans-serif;
-    font-size: 20px;
-    font-style: italic;
-    padding: 35px 35px 35px 40px;
+    border-radius: 0;
+}
+
+main > div:first-of-type video {
+    width: 100%;
+    height: 560px;
+}
+
+/* Quote */
+main > div:nth-of-type(2) {
+    width: 100%;
+    font-family: 'Axiforma-extra-bold', sans-serif;
+    font-size: 30px;
+    text-align: center;
+    padding: 50px;
     box-sizing: border-box;
     border-radius: 8px;
-    border-left: 5px solid #46a4bb;
+    border: 4px solid #46a4bb;
 }
 
 main {
-    width: 800px;
+    width: 1000px;
     margin: 0 auto;
 }
 
-h1 {
-    margin-top: 50px;
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #46a4bb;
 }
 
 span {
     font-family: 'Axiforma-light', sans-serif;
 }
 
+h1 {
+    margin-top: 50px;
+}
+
 h2:after,
-main div > section h3:after {
+main div > section h3:after, h4:after {
     height: 4px;
     margin-top: 5px;
     background-color: #46a4bb;
@@ -46,10 +72,6 @@ main div > section h3:after {
 main div > section h3:after {
     width: 35px;
     height: 3px;
-}
-
-a {
-    text-decoration: none;
 }
 
 img[src=""] {
@@ -73,8 +95,20 @@ main div > section h3 {
     margin-bottom: 8px;
 }
 
-main div > section ul {
-    padding-left: 1em;
+ul li:before {
+    height: 4px;
+    margin-bottom: 3px;
+    margin-right: 7px;
+    background-color: #46a4bb;
+    width: 4px;
+    content: "";
+    display: inline-block;
+}
+
+ul {
+    list-style-type: none;
+    text-decoration: none;
+    padding-left: 0;
 }
 
 main div > section div > span {
@@ -85,7 +119,8 @@ main div > section ul {
     margin-top: 5px;
 }
 
-main div > section h3, main div > section ul li {
+main div > section h3,
+main div > section ul li {
     color: white;
     text-align: left;
 }
@@ -97,19 +132,19 @@ main div > section {
     overflow: hidden;
     border-radius: 8px;
     transition-duration: 0.7s;
+    position: relative;
 }
 
 /* Overlay */
-
 main div > section a div {
     width: 100%;
-    height: 320px;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.4);
     padding: 30px;
-    position: relative;
+    position: absolute;
     z-index: 1;
     transition-duration: 0.7s;
-    margin-top: -320px;
+    top: 0;
     border-radius: 8px;
     opacity: 0;
 }
@@ -122,6 +157,9 @@ main section > a img {
     margin-bottom: -0.25em;
     margin-top: 0;
     transition-duration: 0.7s;
+    position: relative;
+    margin: 0 auto;
+    display: block;
 }
 
 main > h2 {
@@ -138,6 +176,84 @@ main div > section:hover div {
     opacity: 1;
     transition-duration: 0.7s;
 }
+
+
+
+
+/* Extra informatie openen */
+.open {
+    overflow: inherit;
+    transition-duration: 0.7s;
+    width: 100%;
+    height: auto;
+}
+
+.open div {
+    height: 100%;
+    background-color: rgba(0,0,0,0);
+}
+
+.open img {
+    width: 70%;
+}
+
+.info-container button {
+    display: none;
+}
+
+.info-container.open button {
+    display: inline-block;
+    position: fixed;
+    top: 50px;
+    right: 10px;
+    border: none;
+    padding: 1em;
+    box-sizing: border-box;
+    background-color: #
+}
+
+.open div h3:first-of-type,
+.open div span, 
+.open div ul {
+    display: none;
+}
+
+.open:hover img {
+    filter: none;
+}
+
+/* icons / pictogrammen voor info project */
+main div > section article ul li {
+    color: black;
+}
+
+li[data-icon="tijd"]:before {
+    background-image: url(/portfolio/v1/img/svg/tijd.svg);
+}
+
+li[data-icon="programma"]:before {
+    background-image: url(/portfolio/v1/img/svg/programma.svg);
+}
+
+li[data-icon="onderzoek"]:before {
+    background-image: url(/portfolio/v1/img/svg/onderzoek.svg);
+}
+
+li[data-icon]:before {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+    background-color: transparent;
+    margin-bottom: -10px;
+    padding-bottom: 20px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+
+/* Onderkant van de pagina */
 
 footer {
     width: 100%;
