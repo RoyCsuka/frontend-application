@@ -1,8 +1,8 @@
-$('.info-container').click( function(){
-    if ( $(this).hasClass('open') ) {
-        $(this).removeClass('open');
+$('.info-container > a').click( function(){
+    if ( $(this).parent('section').hasClass('open') ) {
+        $(this).parent('section').removeClass('open');
     } else {
         $('.info-container.open').removeClass('open');
-        $(this).addClass('open');    
+        $(this).parent('section').addClass('open');
     }
 });
