@@ -4,7 +4,7 @@ Voor dit vak hebben wij een datavisualisatie gemaakt in een framework voor de St
 Hier zie je de [demo van mijn concept](https://github.com/RoyCsuka/frontend-applications/)
 
 ## Hieronder een snelle preview van mijn eerste uitwerking van het concept
-https://github.com/RoyCsuka/assets/blob/master/maskersvantoen.JPEG
+https://github.com/RoyCsuka/assets/blob/master/maskersvantoen.png
 
 ## Mijn concept en product
 Voor de uitwerking heb ik gewerkt in het framework Vue.js in samenwerking met SPARQL. Voor het [concept](https://github.com/RoyCsuka/frontend-applications/wiki/Concept) spreek ik de doelgroep feestwinkels en de doelgroep daarvan aan. Mijn concept zou een inspiratie bron moeten zijn voor mijn doelgroep. Ik toon daarom ook maskers in mijn applicatie.
