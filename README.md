@@ -1,8 +1,6 @@
 # ID Tech-track - Frontend Applications
 Voor dit vak hebben wij een datavisualisatie gemaakt in een framework voor de Stichting Nationaal Museum van Wereldculturen (Tropenmuseum, het Afrika Museum en Museum Volkenkunde) en die van het Wereldmuseum Rotterdam. Van de opdrachtgever hebben wij een database gekregen en hieruit is er een concept bedacht.
 
-Hier zie je de [demo van mijn concept](https://github.com/RoyCsuka/frontend-applications/)
-
 ## Hieronder een snelle preview van mijn eerste uitwerking van het concept
 ￼![Eerste afbeelding Maskers van Toen](https://github.com/RoyCsuka/assets/blob/master/maskersvantoen.png?raw=true)
 
