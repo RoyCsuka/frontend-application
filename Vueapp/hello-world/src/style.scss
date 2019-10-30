@@ -1,0 +1,406 @@
+$main-color: #00aaa0;
+$sub-color: #002951;
+$txt-color: #686868;
+
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');
+
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Playfair Display', serif;
+    margin: 10px 0;
+    font-weight: lighter;
+    &::after {
+        content: "";
+        display: block;
+        width: 50px;
+        height: 2px;
+        background-color: $main-color;
+        opacity: 0.5;
+        margin-top: 15px;
+    }
+}
+
+p {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: $txt-color;
+}
+
+body {
+    margin: 0;
+}
+
+#app {
+    display: flex;
+}
+
+nav {
+    display: block;
+    position: absolute;
+    background-color: white;
+    right: 0;
+    width: 70vw;
+    bottom: 0;
+    height: 60px;
+    ul {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+        padding: 0 50px;
+        box-sizing: border-box;
+        margin: 0;
+        border-bottom: 2px solid $main-color;
+
+        li {
+            list-style-type: none;
+            display: inline-block;
+            font-family: 'Playfair Display', serif;
+            a {
+                color: $main-color;
+                text-decoration: none;
+                padding: 20px 40px;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+.moveToSide {
+    .descriptionOfPage {
+        position: fixed;
+        width: 22.5vw;
+        margin-left: 2.5vw;
+        margin-top: 80px;
+
+        h1 {
+            font-size: 2.8vw;
+            &::after {
+                height: 3px;
+            }
+        }
+
+        p {
+            display: inline-block;
+        }
+
+        button {
+            display: none;
+        }
+    }
+}
+
+.descriptionOfPage {
+    width: 80vw;
+    margin-left: 15vw;
+    margin-top: calc(50vh - 220px);
+    position: absolute;
+    color: white;
+
+    &::before {
+        content: "";
+        display: block;
+        background-image: url('/img/bg_masks.735373fd.jpg');
+        background-position: top 70px center;
+        background-repeat: no-repeat;
+        width: 100vw;
+        background-color: black;
+        height: 100vh;
+        background-size: cover;
+        top: 0;
+        left: 0;
+        position: fixed;
+        z-index: -1;
+    }
+
+    h1 {
+        font-size: 75px;
+        color: rgba(255, 255, 255, 0.8);
+        b {
+            color: white;
+            font-weight: 700;
+        }
+        &::after {
+            background-color: white;
+            opacity: 1;
+            height: 5px;
+            width: 80px;
+        }
+    }
+
+    button {
+        display: block;
+        background-color: rgba(255, 255, 255, 0.8);
+        font-size: 15px;
+        font-weight: 500;
+        margin-top: 50px;
+        color: rgba(0, 0, 0, 0.7);
+        border-radius: 2px;
+        padding: 10px 25px;
+        cursor: pointer;
+        position: relative;
+
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            width: calc(100% + 8px);
+            height: calc(100% + 8px);
+            padding: 0;
+            left: -6px;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            top: -6px;
+            border-radius: 5px;
+        }
+    }
+
+    p {
+        color: white;
+        display: none;
+    }
+}
+
+.content {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 70vw;
+    margin-left: 30vw;
+    margin-top: 100vh;
+    background-color: white;
+    position: relative;
+
+    article {
+        text-align: left;
+        display: inline-flex;
+        align-items: center;
+        flex-direction: row;
+        background-color: white;
+        width: 100%;
+        padding: 50px 60px;
+
+        &:nth-of-type(2n) {
+            flex-direction: row-reverse;
+            footer {
+                padding-left: 0;
+                padding-right: 60px;
+            }
+        }
+
+        &:first-of-type {
+            padding: 10vh 60px 50px;
+        }
+
+        > div { //afbeelding
+            background-size: cover;
+            background-position: center center;
+            width: 100%;
+            height: 35vw;
+            display: block;
+        }
+
+        footer {
+            display: block;
+            padding-left: 30px;
+            max-width: 40%;
+
+            h3 {
+                margin-bottom: 5px;
+                font-size: 30px;
+            }
+            p {
+                margin: 7px 0;
+                color: $txt-color;
+                font-weight: 200;
+                font-size: 17px;
+                span {
+                    font-weight: 500;
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+// testen van true or false onclick in Vuejs https://stackoverflow.com/questions/42971081/use-arrow-function-in-vue-computed-does-not-work
+.demo {
+  width: 100px;
+  height: 100px;
+  background-color: gray;
+  display: inline-block;
+  margin: 10px;
+}
+
+.red {
+  background-color: red;
+}
+.green {
+  background-color: green;
+}
+.blue {
+  background-color: blue;
+}
+
+// fade in animatie descriptionOfPage
+
+.descriptionOfPage h1,
+.descriptionOfPage button,
+.descriptionOfPage p {
+    -webkit-animation: fadeOutFromNone 1.5s ease-out;
+    -moz-animation: fadeOutFromNone 1.5s ease-out;
+    -o-animation: fadeOutFromNone 1.5s ease-out;
+    animation: fadeOutFromNone 1.5s ease-out;
+}
+
+.moveToSide .descriptionOfPage h1,
+.moveToSide .descriptionOfPage button,
+.moveToSide .descriptionOfPage p {
+    -webkit-animation: fadeInFromNone 1.5s ease-out;
+    -moz-animation: fadeInFromNone 1.5s ease-out;
+    -o-animation: fadeInFromNone 1.5s ease-out;
+    animation: fadeInFromNone 1.5s ease-out;
+}
+
+@-webkit-keyframes fadeOutFromNone {
+    100% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    0% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeOutFromNone {
+    100% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    0% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeOutFromNone {
+    100% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    0% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
