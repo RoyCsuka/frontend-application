@@ -33,15 +33,17 @@ export default {
         sideBar
     },
     data () {
-
         return {
             title: "Maskers van Toen",
-            results: []
+            results: [],
+            maskerItems: []
         }
     },
 
     // FETCH THE DATA
     mounted () {
+    this.scroll(this.maskerItems);
+
     const url = "https://api.data.netwerkdigitaalerfgoed.nl/datasets/ivo/NMVW/services/NMVW-14/sparql"
 
     //Note that the query is wrapped in es6 template strings to allow for easy copy pasting
@@ -93,6 +95,14 @@ export default {
                     i.img.value = i.img.value.replace("http", "https");
                 })
             })
+        },
+        scroll (maskerItems) {
+            window.onscroll = () => {
+                let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
+                if (bottomOfWindow) {
+                    console.log('onderkant pagina');
+                }
+            }
         }
     }
 }
