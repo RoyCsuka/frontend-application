@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# VUE
-Eerst heb ik onderzocht wat je allemaal kan met Vue.js en wat het nou precies is. Dat kun je hier vinden :[online url](https://roycsuka.github.io/portfolio/)
-=======
 # ID Tech-track - Frontend Applications
 Voor dit vak hebben wij een datavisualisatie gemaakt in een framework voor de Stichting Nationaal Museum van Wereldculturen (Tropenmuseum, het Afrika Museum en Museum Volkenkunde) en die van het Wereldmuseum Rotterdam. Van de opdrachtgever hebben wij een database gekregen en hieruit is er een concept bedacht.
 
@@ -14,7 +10,7 @@ Voor de uitwerking heb ik gewerkt in het framework Vue.js in samenwerking met SP
 ## Features
 Hieronder heb ik de gewilde features voor mijn webapplicatie omschreven. Deze zijn niet allemaal uitgewerkt aangezien het tijdsbestek en de kennis.
 - Meer items / content inladen (zoiets als een [laad meer knop](https://i.stack.imgur.com/hqCe1.jpg) of [Ifinite scrolling](https://www.nngroup.com/articles/infinite-scrolling/))
-- Items sorteren op land, aantal keer als favoriet toegevoegd en 
+- Items sorteren op land, aantal keer als favoriet toegevoegd en
 - Een item toevoegen of verwijderen aan een favorieten lijstje (zoiets als het welbekende winkelwagentje maar dan voor items)
 
 ## How to install?
@@ -40,4 +36,3 @@ Hieronder heb ik aangegeven welke websites ik heb gebruikt en wie mij heeft geho
 - Hulp van:
   - Wessel Smit.
   - Sjors Eveleens.
->>>>>>> 2966e0c1720c04927e6de68212c7c7c1abddbb0e
