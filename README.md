@@ -9,12 +9,12 @@ Voor de uitwerking heb ik gewerkt in het framework Vue.js in samenwerking met SP
 
 ## Features
 Hieronder heb ik de gewilde features voor mijn webapplicatie omschreven. Deze zijn niet allemaal uitgewerkt aangezien het tijdsbestek en de kennis.
-- On click scroll to content
-- On click load componement
-- Favorieten toevoegen
+- Meer items / content inladen (zoiets als een [laad meer knop](https://i.stack.imgur.com/hqCe1.jpg) of [Ifinite scrolling](https://www.nngroup.com/articles/infinite-scrolling/))
+- Items sorteren op land, aantal keer als favoriet toegevoegd en 
+- Een item toevoegen of verwijderen aan een favorieten lijstje (zoiets als het welbekende winkelwagentje maar dan voor items)
 
 ## How to install?
-1. Download mijn folder lokaal op jouw deskop
+1. Download mijn folder jouw deskop
 2. Open je terminal
 2.1 Check of je npm geinstalleerd hebt door: nvm --version te typen in je terminal
 2.2 Als het niet geinstalleerd is, volg deze stappen op deze website [nvm install](https://nodesource.com/blog/installing-node-js-tutorial-using-nvm-on-mac-os-x-and-ubuntu/)
