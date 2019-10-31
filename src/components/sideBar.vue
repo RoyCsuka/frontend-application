@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="descriptionOfPage" :class="{red:turnRed}">
+        <div class="descriptionOfPage">
             <h1><b>Maskers</b> van toen</h1>
             <p>
                 Op deze site vind je een verzameling van
@@ -34,12 +34,6 @@ export default {
         return {
             turnRed: false
         }
-    },
-    // testen van true or false onclick in Vuejs https://stackoverflow.com/questions/42971081/use-arrow-function-in-vue-computed-does-not-work
-    methods :{
-        toggle (color) {
-            this[`turn${color}`] = !this[`turn${color}`];
-        },
     },
     created: function () {
         window.addEventListener('scroll', this.handleScroll);

@@ -7,25 +7,19 @@
 </template>
 
 <script>
-import sideBar from './components/sideBar.vue'
+
 import TheData from './components/TheData.vue'
 
 export default {
     name: 'app',
     components: {
-        sideBar,
         TheData
     },
     mounted() {
-        let hasChanged = false
+
         window.addEventListener('scroll', this.onScroll);
     },
     methods: {
-
-        debug (event) {
-            console.log(hightOfWindow)
-        },
-
         onScroll() {
             if (document.documentElement.scrollTop >= 340) {
                 this.$refs.sidebar.$el.classList.add("moveToSide")
