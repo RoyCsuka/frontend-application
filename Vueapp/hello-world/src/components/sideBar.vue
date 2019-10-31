@@ -7,16 +7,13 @@
                 alle maskers zien die de onderstaande museums
                 bezitten.
             </p>
-            <button @click="toggle('Red')" href="">bekijk de collage</button>
+            <button @click="toggle('Red')">bekijk de collage</button>
 
         </div>
 
         <nav>
             <ul>
-                <li><a href="">Eerste onderwerp</a></li>
-                <li><a href="">Tweede onderwerp</a></li>
-                <li><a href="">Onderwerp drie</a></li>
-                <li><a href="">Onderwerp vier</a></li>
+                <li>Sorteer alfabetisch op:</li>
             </ul>
         </nav>
     </div>
