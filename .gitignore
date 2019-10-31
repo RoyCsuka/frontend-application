@@ -2,6 +2,7 @@
 node_modules
 /dist
 babel.config.js
+.gitignore
 
 # local env files
 .env.local
