@@ -2,11 +2,11 @@
     <div>
         <sideBar/>
         <div class="content">
-            <button @click="sortAndToggle()" v-bind:class="{ abc: sort }">Land</button>
+            <button @click="sortAndToggle()" v-bind:class="{ abc: sort }">abc</button>
             <article v-for="item in results"> <!-- Loop de article voor elk resultaat -->
 
                 <!--Achtergrond afbeelding inladen via v-bind:style-->
-                <!-- <div v-bind:style="{ 'background-image': 'url(' + item.img.value + ')' }"></div> -->
+                <div v-bind:style="{ 'background-image': 'url(' + item.img.value + ')' }"></div>
                 <footer>
                     <h3>
                         {{ item.title.value }}
@@ -113,17 +113,16 @@ export default {
             }
         },
 
-        sortAndToggle () {
-            this.sort = !this.sort;
+        sortAndToggle () { // functie voor de @click methode
+            this.sort = !this.sort; // set dit (sort) element op false of true als functie wordt getriggerd
 
-            let sorteerData = this.results;
+            let sorteerData = this.results; // een let die de resultaten uit de database haalt
 
-            if (this.sort === true) {
-                sorteerData.sort((a, b) => (a.placeName.value < b.placeName.value) ? 1 : -1)
-                console.log('True')
-            } else if (this.sort === false) {
-                sorteerData.sort((a, b) => (a.placeName.value > b.placeName.value) ? 1 : -1)
-                console.log('False')
+            if (this.sort === true) { // als sort waar is van de functie hierboven order mijn "sorteerData" van A > Z
+                // stukje hieronder komt van deze site: https://stackoverflow.com/questions/38744932/how-to-call-multiple-functions-with-click-in-vue Zelf heb ik dit aangepast naar mijn waardes en in een if & else statement gezet
+                sorteerData.sort((a, b) => (a.placeName.value < b.placeName.value) ? 1 : -1) // placeName is het land uit SPARQL
+            } else if (this.sort === false) { // als sort waar is van de functie hierboven order mijn "sorteerData" van Z > A
+                sorteerData.sort((a, b) => (a.placeName.value > b.placeName.value) ? 1 : -1) // placeName is het land uit SPARQL
             }
         }
     }
@@ -133,6 +132,101 @@ export default {
 </script>
 
 
-<style>
+<style lang="scss" scoped>
+@import '../style.scss';
+
+.content {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 70vw;
+    margin-left: 30vw;
+    margin-top: 100vh;
+    background-color: white;
+    position: relative;
+
+    button {
+        position: absolute;
+        top: -37px;
+        left: 195px;
+        background-color: #01aa9e;
+        color: white;
+        border: 2px solid;
+        padding: 10px;
+        margin-top: -15px;
+        font-size: 15px;
+        text-transform: uppercase;
+        outline: none;
+        border-radius: 5px;
+        &::after {
+            content: "";
+            display: inline-block;
+            background-image: url('../assets/arrow.svg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 8px;
+            height: 19px;
+            margin-bottom: -5px;
+            margin-left: 5px;
+            margin-top: -10px;
+            transition: all 0.2s ease-in-out;
+        }
+        &.abc {
+            &::after {
+                transform: rotate(-180deg);
+            }
+        }
+    }
+
+    article {
+        text-align: left;
+        display: inline-flex;
+        align-items: center;
+        flex-direction: row;
+        background-color: white;
+        width: 100%;
+        padding: 50px 60px;
+
+        &:nth-of-type(2n) {
+            flex-direction: row-reverse;
+            footer {
+                padding-left: 0;
+                padding-right: 60px;
+            }
+        }
+
+        &:first-of-type {
+            padding: 10vh 60px 50px;
+        }
+
+        > div { //afbeelding
+            background-size: cover;
+            background-position: center center;
+            width: 100%;
+            height: 35vw;
+            display: block;
+        }
+
+        footer {
+            display: block;
+            padding-left: 30px;
+            max-width: 40%;
+
+            h3 {
+                margin-bottom: 5px;
+                font-size: 30px;
+            }
+            p {
+                margin: 7px 0;
+                color: $txt-color;
+                font-weight: 200;
+                font-size: 17px;
+                span {
+                    font-weight: 500;
+                    display: block;
+                }
+            }
+        }
+    }
+}
 
 </style>
