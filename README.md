@@ -24,8 +24,11 @@ Hieronder heb ik de gewilde features voor mijn webapplicatie omschreven. Deze zi
 6. Typ: npm run serve
 7. Open je browser en als het goed is draai je nu de applicatie op dit adres: http://localhost:8080/
 
+## Reflectie
+Over het algemeen ben ik tevreden met het eindresultaat. Erg jammer dat ik de applicatie niet heb kunnen deployen alleen wel super tof dat ik een sorteer functie heb kunnen toevoegen!
+
 ## Credits
-Hieronder heb ik aangegeven welke websites ik heb gebruikt en wie mij heeft geholpen. Om te kunnen zien wie of wat mij wanener geholpen heeft moet je kijken naar mijn [logboek](https://github.com/RoyCsuka/frontend-applications/wiki/Vue).
+Hieronder heb ik aangegeven welke websites ik heb gebruikt en wie mij heeft geholpen. Om te kunnen zien wie of wat mij wanener geholpen heeft moet je kijken naar mijn [logboek](https://github.com/RoyCsuka/frontend-applications/wiki/Logboek).
 ### Technische specificaties m.b.t. Vue.js en SPARQL
 - https://stackoverflow.com/
 - Hulp van:
