@@ -16,8 +16,8 @@ Hieronder heb ik de gewilde features voor mijn webapplicatie omschreven. Deze zi
 ## How to install?
 1. Download mijn folder jouw deskop
 2. Open je terminal
-2.1 Check of je npm geinstalleerd hebt door: nvm --version te typen in je terminal
-2.2 Als het niet geinstalleerd is, volg deze stappen op deze website [nvm install](https://nodesource.com/blog/installing-node-js-tutorial-using-nvm-on-mac-os-x-and-ubuntu/)
+   * Check of je npm geinstalleerd hebt door: nvm --version te typen in je terminal
+   * Als het niet geinstalleerd is, volg deze stappen op deze website [nvm install](https://nodesource.com/blog/installing-node-js-tutorial-using-nvm-on-mac-os-x-and-ubuntu/)
 3. Typ: cd
 4. Sleep de gedownloade folder naar je terminal
 5. Druk enter
