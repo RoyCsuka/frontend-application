@@ -1,10 +1,17 @@
 <template>
     <div>
-        <sideBar/>
         <div class="content">
             <button @click="sortAndToggle()" v-bind:class="{ abc: sort }">abc</button>
-            <article  v-bind:key="item.id" v-for="item in results"> <!-- Loop de article voor elk resultaat -->
+            <!-- FILTEREN OP DE OUDE MANIER -->
+            <!-- <button v-on:click="userFilterKey = 'all'" :class="{ active: userFilterKey == 'all' }">All</button>
+            <button v-on:click="userFilterKey = 'filterAfrika'" :class="{active: userFilterKey == 'filterAfrika' }">Afrika</button> -->
 
+
+            <select class="" name="" v-model="countrys" >
+                <option v-for="item in results" :value="item.placeName.value">{{ item.placeName.value }}</option>
+            </select>
+
+            <article v-bind:key="item.id" v-for="item in computed_items"> <!-- Loop de article voor elk resultaat -->
                 <!--Achtergrond afbeelding inladen via v-bind:style-->
                 <div v-bind:style="{ 'background-image': 'url(' + item.img.value + ')' }"></div>
                 <footer>
@@ -26,16 +33,13 @@
 
 <script>
 
-import sideBar from './sideBar.vue'
-
-
 export default {
-    components: {
-        sideBar
-    },
     data () {
         return {
             title: "Maskers van Toen",
+            // --------- FILTEREN OP DE OUDE MANIER
+            // userFilterKey: 'all',
+            countrys: '',
             results: [],
             sort: false
         }
@@ -100,7 +104,9 @@ export default {
             })
         },
 
-        sortAndToggle () { // functie voor de @click methode
+
+        // abc: sort
+        sortAndToggle() { // functie voor de @click methode
             this.sort = !this.sort; // set dit (sort) element op false of true als functie wordt getriggerd
 
             let sorteerData = this.results; // een let die de resultaten uit de database haalt
@@ -112,8 +118,40 @@ export default {
                 sorteerData.sort((a, b) => (a.placeName.value > b.placeName.value) ? 1 : -1) // placeName is het land uit SPARQL
             }
         }
+    },
+
+    // Code heb ik hiervan daan en mijn eigen gemaakt: https://jsfiddle.net/1f9ytasb/
+    computed: {
+        // --------- FILTEREN OP DE OUDE MANIER
+        // userFilter() {
+        //     return this[this.userFilterKey]
+        // },
+        //
+        // all() {
+        //     return this.results
+        // },
+        //
+        // // afrika: filter
+        // filterAfrika() {
+        //     return this.results.filter((results) => results.placeName.value == "Afrika")
+        // },
+
+        // Dynamische filter optie naar mijn eigen gemaakt: https://stackoverflow.com/questions/49521851/how-to-filter-list-from-multiple-select-options-dropdowns-using-vuejs
+        computed_items: function () {
+            let filterType= this.countrys
+
+            return this.results.filter(function(results) {
+                let filtered = true
+                if(filterType && filterType.length > 0){
+                    filtered = results.placeName.value == filterType
+                }
+                return filtered
+            })
+        }
     }
 }
+
+
 
 
 </script>
@@ -131,19 +169,10 @@ export default {
     background-color: white;
     position: relative;
 
-    button {
-        position: absolute;
-        top: -37px;
+    // Sorteer knop
+    button:first-of-type {
         left: 195px;
         background-color: #01aa9e;
-        color: white;
-        border: 2px solid;
-        padding: 10px;
-        margin-top: -15px;
-        font-size: 15px;
-        text-transform: uppercase;
-        outline: none;
-        border-radius: 5px;
         &::after {
             content: "";
             display: inline-block;
@@ -156,12 +185,46 @@ export default {
             margin-left: 5px;
             margin-top: -10px;
             transition: all 0.2s ease-in-out;
+            transform: rotate(-180deg);
         }
         &.abc {
             &::after {
-                transform: rotate(-180deg);
+                transform: rotate(0);
             }
         }
+    }
+
+    // --------- FILTEREN OP DE OUDE MANIER
+    // // Filter knop
+    // button:not(:first-of-type) {
+    //     background-color: #80a932;
+    //     &:not(.active) {
+    //         opacity: 0.5;
+    //     }
+    // }
+    //
+    // // Filter knop
+    // button:nth-of-type(2) {
+    //     left: 450px;
+    // }
+    //
+    // button:last-of-type {
+    //     left: 505px;
+    // }
+
+    // Sorteer en filter knop
+    button {
+        position: absolute;
+        top: -37px;
+        color: white;
+        border: 2px solid;
+        padding: 10px;
+        margin-top: -15px;
+        font-size: 15px;
+        text-transform: uppercase;
+        outline: none;
+        border-radius: 5px;
+        cursor: pointer;
     }
 
     article {

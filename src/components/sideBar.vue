@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="descriptionOfPage">
+        <div class="descriptionOfPage" :class="{red:turnRed}">
             <h1><b>Maskers</b> van toen</h1>
             <p>
                 Op deze site vind je een verzameling van
@@ -8,17 +8,18 @@
                 bezitten. Dit is een inspiratiebron voor
                 de mensen die in maskers geïnteresseerd zijn.
             </p>
-            <img src="../assets/afrika-logo.png" alt="">
-            <img src="../assets/wereld-logo.png" alt="">
-            <img src="../assets/tropen-logo.png" alt="">
-            <img src="../assets/volkenkunde-logo.png" alt="">
-            <button @click="toggle('Red')">bekijk de collage</button>
+            <a href="https://www.afrikamuseum.nl/" target="_blank"><img src="../assets/afrika-logo.png" alt=""></a>
+            <a href="https://www.wereldmuseum.nl/" target="_blank"><img src="../assets/wereld-logo.png" alt=""></a>
+            <a href="https://www.tropenmuseum.nl/" target="_blank"><img src="../assets/tropen-logo.png" alt=""></a>
+            <a href="https://www.volkenkunde.nl/" target="_blank"><img src="../assets/volkenkunde-logo.png" alt=""></a>
+            <a href="#scroll" class="scroll-button">bekijk de collage</a>
 
         </div>
 
-        <nav>
+        <nav id="scroll">
             <ul>
-                <li>Sorteer op landen:</li>
+                <li>Sorteer de landen:</li>
+                <li>Of filter op landen:</li>
             </ul>
         </nav>
     </div>
@@ -63,7 +64,6 @@ nav {
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
         align-items: center;
-        justify-content: space-between;
         width: 100%;
         height: 100%;
         padding: 0 50px;
@@ -75,6 +75,9 @@ nav {
             list-style-type: none;
             display: inline-block;
             font-family: 'Playfair Display', serif;
+            &:last-of-type {
+                margin-left: 120px;
+            }
             a {
                 color: $main-color;
                 text-decoration: none;
@@ -111,7 +114,7 @@ nav {
             display: inline-block;
         }
 
-        button {
+        .scroll-button {
             display: none;
         }
     }
@@ -155,8 +158,9 @@ nav {
         }
     }
 
-    button {
-        display: block;
+    .scroll-button {
+        display: inline-block;
+        text-decoration: none;
         background-color: rgba(255, 255, 255, 0.8);
         font-size: 15px;
         font-weight: 500;
@@ -164,7 +168,6 @@ nav {
         color: rgba(0, 0, 0, 0.7);
         border-radius: 2px;
         padding: 10px 25px;
-        cursor: pointer;
         position: relative;
 
         &::before {

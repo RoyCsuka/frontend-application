@@ -1,18 +1,20 @@
 
 <template>
     <div id="app">
-        <img src="assets/logo.png" alt="">
-        <TheData ref="sidebar"></TheData>
+        <sideBar ref="sidebar"></sideBar>
+        <TheData></TheData>
     </div>
 </template>
 
 <script>
 
+import sideBar from './components/sideBar.vue'
 import TheData from './components/TheData.vue'
 
 export default {
     name: 'app',
     components: {
+        sideBar,
         TheData
     },
     mounted() {
