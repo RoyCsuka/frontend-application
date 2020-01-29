@@ -122,19 +122,6 @@ export default {
 
     // Code heb ik hiervan daan en mijn eigen gemaakt: https://jsfiddle.net/1f9ytasb/
     computed: {
-        // --------- FILTEREN OP DE OUDE MANIER
-        // userFilter() {
-        //     return this[this.userFilterKey]
-        // },
-        //
-        // all() {
-        //     return this.results
-        // },
-        //
-        // // afrika: filter
-        // filterAfrika() {
-        //     return this.results.filter((results) => results.placeName.value == "Afrika")
-        // },
 
         // Dynamische filter optie naar mijn eigen gemaakt: https://stackoverflow.com/questions/49521851/how-to-filter-list-from-multiple-select-options-dropdowns-using-vuejs
         computed_items: function () {
@@ -194,23 +181,57 @@ export default {
         }
     }
 
-    // --------- FILTEREN OP DE OUDE MANIER
-    // // Filter knop
-    // button:not(:first-of-type) {
-    //     background-color: #80a932;
-    //     &:not(.active) {
-    //         opacity: 0.5;
-    //     }
-    // }
-    //
-    // // Filter knop
-    // button:nth-of-type(2) {
-    //     left: 450px;
-    // }
-    //
-    // button:last-of-type {
-    //     left: 505px;
-    // }
+    select {
+        position: absolute;
+        left: 455px;
+        top: -50px;
+        background-color: #01aa9e;
+        padding: 8px 20px;
+        margin: 0;
+        font-size: 15px;
+        border-radius: 4px;
+        -webkit-box-shadow: 0 3px 0 rgba(1, 170, 158, 0.51), 0 -1px rgba(1, 170, 158, 0.8) inset;
+        box-shadow: 0 3px 0 rgba(1, 170, 158, 0.51), 0 -1px rgba(1, 170, 158, 0.8) inset;
+        background: #01aa9e;
+        color: #fff;
+        border: none;
+        outline: none;
+        display: inline-block;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        cursor: pointer;
+    }
+
+    /* Targetting Webkit browsers only. FF will show the dropdown arrow with so much padding. */
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+        select {padding-right:18px}
+    }
+
+    option {position:relative}
+    option:after {
+        content:'<>';
+        font:11px "Consolas", monospace;
+        color:#aaa;
+        -webkit-transform:rotate(90deg);
+        -moz-transform:rotate(90deg);
+        -ms-transform:rotate(90deg);
+        transform:rotate(90deg);
+        right:8px; top:2px;
+        padding:0 0 2px;
+        border-bottom:1px solid #ddd;
+        position:absolute;
+        pointer-events:none;
+    }
+    option:before {
+        content:'';
+        right:6px; top:0px;
+        width:20px; height:20px;
+        background:#f8f8f8;
+        position:absolute;
+        pointer-events:none;
+        display:block;
+    }
 
     // Sorteer en filter knop
     button {
